@@ -3,7 +3,7 @@ let currentYear = today.getFullYear();
 let currentWeek = Math.floor(((today.getTime()-(new Date(today.getFullYear(),0)).getTime())/(1000*3600*24))/7);
 let selectYear = document.getElementById("year");
 let selectWeek = document.getElementById("week");
-let familyNumber = 5;
+let familyNumber = 4;
 let weekdayOnly = true;
 let context = 'Availability';
 
