@@ -347,7 +347,7 @@ function showCalendar(week, year, reset,av=false,sch=false,clear=2) {
       clear--;
     }
 
-    if(av!=false){
+    if(reset!=true && av!=false){
       for(let i=0;i<familyNumber;i++){
         for(let j=0;j<av[i].length;j++){
           let element = document.getElementById(av[i][j]);
@@ -356,12 +356,12 @@ function showCalendar(week, year, reset,av=false,sch=false,clear=2) {
         }
       }
       currentFamily=0;
-    }if(sch!=false){
+    }if(reset!=true && sch!=false){
       for(let i=0;i<familyNumber;i++){
         for(let j=0;j<sch[i].length;j++){
           let element = document.getElementById("o"+sch[i][j]);
           currentFamily = i;
-          select(element);
+          select(element,false);
         }
       }
       currentFamily=0;
@@ -369,8 +369,8 @@ function showCalendar(week, year, reset,av=false,sch=false,clear=2) {
 
 }
 
-function toggleSchedule(schedule){
-  if(!(schedule && !document.getElementById('ocalendar').hasAttribute('hidden'))){
+function toggleSchedule(s=true){
+  if(!(s && !document.getElementById('ocalendar').hasAttribute('hidden'))){
     let hidden = document.getElementById('ocalendar').toggleAttribute('hidden');
     document.getElementById('year').toggleAttribute('disabled');
     document.getElementById('week').toggleAttribute('disabled');
