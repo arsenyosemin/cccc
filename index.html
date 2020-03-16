@@ -51,7 +51,7 @@ To go back and modify the availability calendar after you’ve generated a sched
 
 To modify the final schedule, select family colors as you did for the availability calendar and use them to reassign scheduled days (if you want to), then download or share as normal</div>
         </form>
-            <form class="form-inline">
+            <div class="form-inline">
                 <label class="lead mr-2 ml-2" for="week">Jump To: </label>
                 <select class="form-control col-sm-2" name="week" id="week" onchange="jump()">
                 </select>
@@ -63,7 +63,7 @@ To modify the final schedule, select family colors as you did for the availabili
                 &nbsp<input type="button" class="col-sm-2 btn btn-outline-primary" id="toggleWkdays" onclick="toggleWeekdays()" value="Weekends OFF">
                 &nbsp<input type="button" class="col-sm-3 btn btn-outline-primary" id="toggleSched" onclick="toggleSchedule()" value="Show Schedule">
                 &nbsp<button class="btn ml-auto col-sm-1 btn-danger" onclick="resetCalendar()">Reset</button>
-              </form>
+              </div>
         </div>
         <table class="table table-bordered " style="table-layout: fixed" id="calendar">
             <thead>

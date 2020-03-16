@@ -92,7 +92,6 @@ function loadCalendar(){
 
 function resetCalendar(){
   showCalendar(currentWeek, currentYear,true,false,false,2);
-  toggleSchedule();
 }
 
 function exportCalendar(){
