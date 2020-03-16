@@ -83,7 +83,7 @@ function loadCalendar(){
   familyText();
   showCalendar(currentWeek, currentYear,false,av,sch,2);
   if(!weekdayOnly){
-    document.getElementById('toggleWeekdays').innerHTML='Only Weekdays';
+    document.getElementById('toggleWkdays').value='Only Weekdays';
   }
   if(urlParams.get('context')=="Schedule"){
     toggleSchedule();
