@@ -1,0 +1,7 @@
+/* CSS files add styling rules to your content */
+.table-bordered{border-collapse:separate;}
+td.on:hover{border:1px solid black; cursor:pointer;}
+th.on:hover{background-color:lightGreen; cursor:pointer;}
+table#ocalendar td.crossed{
+  background-image: linear-gradient(to bottom right,  transparent calc(50% - 1px), red, transparent calc(50% + 1px));
+}

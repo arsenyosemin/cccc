@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container col-sm-10 col-md-11 col-lg-7 mt-5">
+    <div class="card">
+        <div class="card-header" id="monthAndYear">
+          <form class="mb-2 form-inline">
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#instructions">Instructions</button>
+            &nbsp<a href="https://docs.google.com/document/d/14LMT4s6yDI4tcYk30ME1ITWkQC4pIXPVrQoioQLdbLM/edit?usp=sharing" target="_blank" class="col-sm-1 btn btn-info">FAQ</a>
+            &nbsp<a href="documents.html" target="_blank" class="col-sm-2 btn btn-info">Sample Forms</a>
+            <h1 style="text-align:right" class="col-sm-5 lead ml-auto">Covid Childcare Coop Calculator</h1>
+            <div id="instructions" style="white-space: pre-wrap;" class="collapse">How to use the CCCC
+
+Family 1:
+
+Select the number of families in the co-op
+Enter your name in the “Family 1” field, then click the colored box next to it
+Mark the days on the calendar you are not available. To mark the same day every week, click the name of that day. (If you’re not available any Tuesdays, click Tuesday.)
+When you’re finished marking availability, click the “Link Calendar” button at bottom and it will automatically copy the generated link for you to send to Family 2
+
+Family 2-X:
+
+Open the link you get from Family X-1
+Enter your name in the “Family X” field, then click the colored box next to it
+Mark the days on the calendar when you are not available
+When you’re finished marking availability, click the “Link Calendar” button at bottom and paste the automatically copied link to send it to the next family
+
+Last family:
+
+Once everyone has indicated their availability (every family field should be filled and all the colors represented on the calendar), click the “Create Schedule” button at bottom
+The calendar now represents an approximately fair schedule given your availabilities. (If for any reason you don’t like it, press the “Create” button again to generate a different fair option with the same restrictions)
+To share the calendar, use the “Link Calendar” button to create a link to the schedule, or use the “Download Schedule” button to download an html file of your schedule.
+
+Troubleshooting:
+
+To exclude or include weekend days, use the “Weekends” toggle at top
+
+To go back and modify the availability calendar after you’ve generated a schedule, click the “Change Availability”/”Show Schedule” toggle at top
+
+To modify the final schedule, select family colors as you did for the availability calendar and use them to reassign scheduled days (if you want to), then download or share as normal</div>
+        </form>
+            <form class="form-inline">
+                <label class="lead mr-2 ml-2" for="week">Jump To: </label>
+                <select class="form-control col-sm-2" name="week" id="week" onchange="jump()">
+                </select>
+                <label for="year"></label>
+                <select class="form-control col-sm-2" name="year" id="year" onchange="jump()">
+                  <option value="2020">2020</option>
+                  <option value="2021">2021</option>
+                </select>
+                &nbsp<a class="col-sm-2 btn btn-outline-primary" id="toggleWeekdays" onclick="toggleWeekdays()">Weekends OFF</a>
+                &nbsp<a class="col-sm-3 btn btn-outline-primary" id="toggleSchedule" onclick="toggleSchedule()">Show Schedule</a>
+                &nbsp<button class="btn ml-auto col-sm-1 btn-danger" id="resetCalendar" onclick="resetCalendar()">Reset</button>
+              </form>
+        </div>
+        <table class="table table-bordered " style="table-layout: fixed" id="calendar">
+            <thead>
+            <tr>
+                <th id="sun">Sun</th>
+                <th class="on" id="mon">Mon</th>
+                <th class="on" id="tue">Tue</th>
+                <th class="on" id="wed">Wed</th>
+                <th class="on" id="thu">Thu</th>
+                <th class="on" id="fri">Fri</th>
+                <th id="sat">Sat</th>
+            </tr>
+            </thead>
+
+            <tbody id="calendar-body">
+
+            </tbody>
+        </table><table hidden class="table table-bordered" style="table-layout: fixed" id="ocalendar">
+            <thead>
+            <tr>
+                <th id="osun">Sun</th>
+                <th class="on" id="omon">Mon</th>
+                <th class="on" id="otue">Tue</th>
+                <th class="on" id="owed">Wed</th>
+                <th class="on" id="othu">Thu</th>
+                <th class="on" id="ofri">Fri</th>
+                <th id="osat">Sat</th>
+            </tr>
+            </thead>
+
+            <tbody id="ocalendar-body">
+
+            </tbody>
+        </table>
+                <div class="form-inline">
+
+                    <button class="btn btn-outline-primary col-sm-6" id="previous" onclick="previous()">Previous</button>
+
+                    <button class="btn btn-outline-primary col-sm-6" id="next" onclick="next()">Next</button>
+                </div>
+                <br >
+        <div class="form-inline">
+            <div class="col-sm-3"></div>
+                <label class="lead col-sm-3" for="familyNumber">Number of Caretakers: </label><input onchange="familyText()" class="form-control col-sm-1" type="number" id="familyNumber" min="2" max="7" value="5"><div class="col-sm-3"></div>
+            </div>
+        <div id="familyText" class="form-inline">
+            <textarea id="family1" style="background: linear-gradient(to top,pink 0% 14.28%, white 14.28% 100%)" class="form-control col-sm-5" rows="1">family 1</textarea><button id="btn1" clicked style="background-color: pink" class="btn btn-outline-dark col-sm-1">x</button>
+            <textarea id="family2" style="background: linear-gradient(to top,blue 0% 14.28%, white 14.28% 100%)" class="form-control col-sm-5" rows="1">family 2</textarea><button id="btn2" class="btn btn-outline-dark col-sm-1">x</button>
+            <textarea id="family3" style="background: linear-gradient(to top,green 0% 14.28%, white 14.28% 100%)" class="form-control col-sm-5" rows="1">family 3</textarea><button id="btn3" class="btn btn-outline-dark col-sm-1">x</button>
+            <textarea id="family4" style="background: linear-gradient(to top,yellow 0% 14.28%, white 14.28% 100%)" class="form-control col-sm-5" rows="1">family 4</textarea><button id="btn4" class="btn btn-outline-dark col-sm-1">x</button>
+            <textarea id="family5" style="background: linear-gradient(to top,orange 0% 14.28%, white 14.28% 100%)" class="form-control col-sm-5" rows="1">family 5</textarea><button id="btn5" class="btn btn-outline-dark col-sm-1">x</button>
+            <textarea id="family6" hidden style="background: linear-gradient(to top,purple 0% 14.28%, white 14.28% 100%)" class="form-control col-sm-5" rows="1">family 6</textarea><button hidden id="btn6" class="btn btn-outline-dark col-sm-1">x</button>
+            <textarea id="family7" hidden style="background: linear-gradient(to top,red 0% 14.28%, white 14.28% 100%)" class="form-control col-sm-5" rows="1">family 7</textarea><button hidden id="btn7" class="btn btn-outline-dark col-sm-1">x</button>
+        </div>
+
+        <br/>
+
+        <button class="btn btn-primary" id="submit_link" onclick="submit()">Create Schedule</button>
+        <a class="btn btn-success" id="download_link" download="schedule.html" href="" onclick="downloadSchedule()">Download Schedule</a>
+        <button class="btn btn-info" id="export" onclick="exportCalendar()" style="color:white;">Link Calendar</button>
+        <input hidden type="text" id="exporturl" value="">
+        <div id="copied" style="display:none;" class="mb-0 alert alert-success">Link Copied!</div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://unpkg.com/javascript-lp-solver/prod/solver.js"></script>
+<script src="togglecalendar.js"></script>
+
+<!-- Optional JavaScript for bootstrap -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+
+
+</body>
+</html>
