@@ -379,9 +379,13 @@ function toggleSchedule(schedule){
     document.getElementById('calendar').toggleAttribute('hidden');
     if(hidden){
       context = 'Availability';
-      document.getElementById('toggleSchedule').innerHTML='Show Schedule';
+      document.getElementById('toggleSched').value='Show Schedule';
+      document.getElementById('toggleSched').classList.remove('btn-primary');
+      document.getElementById('toggleSched').classList.add('btn-outline-primary');
     }else {
-      document.getElementById('toggleSchedule').innerHTML='Change Availabilities';
+      document.getElementById('toggleSched').value='Change Availabilities';
+      document.getElementById('toggleSched').classList.remove('btn-outline-primary');
+      document.getElementById('toggleSched').classList.add('btn-primary');
         context = 'Schedule';
       }
   }
@@ -408,7 +412,7 @@ function toggleWeekdays(){
       document.getElementById("o"+(0+(7*i))).classList.add(...['crossed','on']);
       document.getElementById("o"+(6+(7*i))).classList.add(...['crossed','on']);
     }
-    document.getElementById('toggleWeekdays').innerHTML='Weekends ON';
+    document.getElementById('toggleWkdays').value='Weekends ON';
   }else{
     weekdayOnly = true;
     document.getElementById('sun').setAttribute('style','background-color:LightGrey');
@@ -444,7 +448,7 @@ function toggleWeekdays(){
       }
       unavailabilities[f]=tmp;
     }
-    document.getElementById('toggleWeekdays').innerHTML='Weekends OFF';
+    document.getElementById('toggleWkdays').value='Weekends OFF';
   }
 }
 
