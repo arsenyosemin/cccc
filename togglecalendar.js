@@ -369,7 +369,7 @@ function showCalendar(week, year, reset,av=false,sch=false,clear=2) {
 
 }
 
-function toggleSchedule(s=true){
+function toggleSchedule(s=false){
   if(!(s && !document.getElementById('ocalendar').hasAttribute('hidden'))){
     let hidden = document.getElementById('ocalendar').toggleAttribute('hidden');
     document.getElementById('year').toggleAttribute('disabled');
