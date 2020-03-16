@@ -81,7 +81,7 @@ function loadCalendar(){
     document.getElementById("familyNumber").value=familyNumber;
   }
   familyText();
-  showCalendar(currentWeek, currentYear,true,av,sch,2);
+  showCalendar(currentWeek, currentYear,false,av,sch,2);
   if(!weekdayOnly){
     document.getElementById('toggleWeekdays').innerHTML='Only Weekdays';
   }
@@ -262,6 +262,7 @@ function showCalendar(week, year, reset,av=false,sch=false,clear=2) {
     createWeekOptions(year);
     if(reset==true){
       unavailabilities=[[],[],[],[],[],[],[]];
+      schedule=[[],[],[],[],[],[],[]];
     }
     // find the first monday of the year
     let firstMonday = new Date(year,0).getDay();
