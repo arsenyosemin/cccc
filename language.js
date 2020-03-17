@@ -120,9 +120,7 @@ Para cambiar el horario final, seleccionar los colores de la familia como dice a
      faq_button = "常见问题答疑";//"Preguntas Frecuentes";
      forms_button = "表格示例";
      cccc = "Covid Childcare Coop Calculator";
-     instructions_text = `协作托儿日程生成器
-
-how to use...如何使用协作托儿日程生成器？
+     instructions_text = `如何使用协作托儿日程生成器？
 
 1号家庭
 选择此协作社中的家庭数量
@@ -158,8 +156,8 @@ how to use...如何使用协作托儿日程生成器？
      thu = "周四";
      fri = "周五";
      sat = "周六";
-     next_button = "后";
-     prev_button = "前";
+     next_button = "后一周";
+     prev_button = "前一周";
      familynumlabel = "可承担托儿工作的人数: ";
      family = "家庭";
      create_schedule = "创建日程";
