@@ -62,7 +62,7 @@ To modify the final schedule, select family colors as you did for the availabili
      explainer_button="Explicar";
      instruction_button="Instrucciones"
      faq_link = "https://docs.google.com/document/d/1iT09ExGNh9RVvjCiNYHzS9LjUkwK7AfB836SVG5or14/preview";
-     faq_button = "Preguntas Frecuentes";
+     faq_button = "FAQ";//"Preguntas Frecuentes";
      forms_button = "Formulario de muestra";
      cccc = "Covid Childcare Coop Calculator";
      instructions_text = `Familia 1:
