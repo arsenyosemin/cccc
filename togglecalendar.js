@@ -1,3 +1,4 @@
+
 let today = new Date();
 let currentYear = today.getFullYear();
 let currentWeek = Math.floor(((today.getTime()-(new Date(today.getFullYear(),0)).getTime())/(1000*3600*24))/7);
