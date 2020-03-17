@@ -21,7 +21,13 @@ let currentFamily = 0;
 
 let unavailabilities = [[],[],[],[],[],[],[]];
 let schedule = [[],[],[],[],[],[],[]];
-let familyNames = ['family 1','family 2','family 3','family 4','family 5','family 6','family 7'];
+let familyNames = [document.getElementById('family1').value,
+document.getElementById('family2').value,
+document.getElementById('family3').value,
+document.getElementById('family4').value,
+document.getElementById('family5').value,
+document.getElementById('family6').value,
+document.getElementById('family7').value];
 
 // listener for family edit buttons
 document.addEventListener('click', function(event){
@@ -40,6 +46,13 @@ document.addEventListener('click', function(event){
 
 function changeLang(lang){
   changeLanguage(lang);
+  familyNames = [document.getElementById('family1').value,
+  document.getElementById('family2').value,
+  document.getElementById('family3').value,
+  document.getElementById('family4').value,
+  document.getElementById('family5').value,
+  document.getElementById('family6').value,
+  document.getElementById('family7').value];
   createWeekOptions(currentYear);
 }
 
