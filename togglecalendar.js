@@ -7,7 +7,6 @@ let familyNumber = 4;
 let weekdayOnly = true;
 let context = 'Availability';
 
-let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 let days = ["sun","mon","tue","wed","thu","fri","sat"];
 
 let families = [['family1','btn1','pink'],
@@ -39,6 +38,11 @@ document.addEventListener('click', function(event){
   }
 }, false);
 
+function changeLang(lang){
+  changeLanguage(lang);
+  createWeekOptions(currentYear);
+}
+
 // listener for family name changes
 document.addEventListener('keyup',function(event){
   for (let i = 0; i < families.length; i++) {
@@ -57,6 +61,9 @@ function loadCalendar(){
   let sch = false;
   let queryString = window.location.search;
   let urlParams = new URLSearchParams(queryString);
+  if(urlParams.has('lang')){
+    changeLanguage(urlParams.get('lang'));
+  }
   if(urlParams.has('familyNumber')){
     av = [[],[],[],[],[],[],[]];
     sch = [[],[],[],[],[],[],[]];
@@ -83,7 +90,7 @@ function loadCalendar(){
   familyText();
   showCalendar(currentWeek, currentYear,false,av,sch,2);
   if(!weekdayOnly){
-    document.getElementById('toggleWkdays').value='Only Weekdays';
+    document.getElementById('toggleWkdays').value=document.getElementById('toggleWkdays').getAttribute("on");
   }
   if(urlParams.get('context')=="Schedule"){
     toggleSchedule();
@@ -96,7 +103,7 @@ function resetCalendar(){
 
 function exportCalendar(){
   let url = location.protocol + '//' + location.host + location.pathname;
-  url += '?familyNumber='+familyNumber+'&year='+currentYear+'&week='+currentWeek+'&weekday='+weekdayOnly+'&context='+context;
+  url += '?familyNumber='+familyNumber+'&year='+currentYear+'&week='+currentWeek+'&weekday='+weekdayOnly+'&context='+context+'&lang='+document.documentElement.lang;
   for(let i=0;i<familyNumber;i++){
     url += '&name'+(i+1)+'='+familyNames[i];
     if(unavailabilities[i].length>0){
@@ -244,12 +251,13 @@ function createWeekOptions(year){
   if(firstMonday<=1){firstMonday=2-firstMonday;}
   else{firstMonday=9-firstMonday;}
   let monday = new Date(year,0,firstMonday);
-
+  let options = {weekday: "long", month: "2-digit",
+    day: "2-digit" };
   for(let i = 0;i<52;i++){
     let option = document.createElement("option");
     option.value = i;
-    let d = monday.toDateString()
-    let text = document.createTextNode(d.substring(0,d.length-5));
+    let d = monday.toLocaleString(document.documentElement.lang,options);
+    let text = document.createTextNode(d);
     monday.setDate(monday.getDate()+7)
     option.appendChild(text);
     document.getElementById("week").appendChild(option);
@@ -379,11 +387,11 @@ function toggleSchedule(s=false){
     document.getElementById('calendar').toggleAttribute('hidden');
     if(hidden){
       context = 'Availability';
-      document.getElementById('toggleSched').value='Show Schedule';
+      document.getElementById('toggleSched').value=document.getElementById('toggleSched').getAttribute("sched");
       document.getElementById('toggleSched').classList.remove('btn-primary');
       document.getElementById('toggleSched').classList.add('btn-outline-primary');
     }else {
-      document.getElementById('toggleSched').value='Change Availabilities';
+      document.getElementById('toggleSched').value=document.getElementById('toggleSched').getAttribute("av");
       document.getElementById('toggleSched').classList.remove('btn-outline-primary');
       document.getElementById('toggleSched').classList.add('btn-primary');
         context = 'Schedule';
@@ -412,7 +420,7 @@ function toggleWeekdays(){
       document.getElementById("o"+(0+(7*i))).classList.add(...['crossed','on']);
       document.getElementById("o"+(6+(7*i))).classList.add(...['crossed','on']);
     }
-    document.getElementById('toggleWkdays').value='Weekends ON';
+    document.getElementById('toggleWkdays').value=document.getElementById('toggleWkdays').getAttribute("on");
   }else{
     weekdayOnly = true;
     document.getElementById('sun').setAttribute('style','background-color:LightGrey');
@@ -448,7 +456,7 @@ function toggleWeekdays(){
       }
       unavailabilities[f]=tmp;
     }
-    document.getElementById('toggleWkdays').value='Weekends OFF';
+    document.getElementById('toggleWkdays').value=document.getElementById('toggleWkdays').getAttribute("off");
   }
 }
 

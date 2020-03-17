@@ -5,3 +5,7 @@ th.on:hover{background-color:lightGreen; cursor:pointer;}
 table#ocalendar td.crossed{
   background-image: linear-gradient(to bottom right,  transparent calc(50% - 1px), red, transparent calc(50% + 1px));
 }
+b:hover {
+  text-decoration: underline;
+  cursor: default;
+}
