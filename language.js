@@ -1,4 +1,4 @@
-function changeLanguage(lang="es"){
+function changeLanguage(lang){
   let explainer_link="https://docs.google.com/document/d/1UmfWCSgtZPR6o3B1lfsqi51bADjnDvMrDLg1M2fTIt4/preview";
   let explainer_button="Explainer";
   let instruction_button="Instructions";
@@ -110,6 +110,62 @@ Para cambiar el horario final, seleccionar los colores de la familia como dice a
      download_schedule = "Descargar Horario";
      link_calendar = "Enlace a Horario";
      link_copied = "Enlace es Copiado!";
+  }
+
+  if(lang=="zh"){
+    explainer_link="https://docs.google.com/document/d/1q0dHrDWbqS7yeT-hGbzwsEzjP_yX0JobcE3C1tDsgI0/preview";
+     explainer_button="背景阐述";
+     instruction_button="使用指南"
+     faq_link = "https://docs.google.com/document/d/1ZkM400cBNLvPSVfkShzX3ssK80zac8eWKaQSugbpofk/preview";
+     faq_button = "常见问题答疑";//"Preguntas Frecuentes";
+     forms_button = "表格示例";
+     cccc = "Covid Childcare Coop Calculator";
+     instructions_text = `协作托儿日程生成器
+
+how to use...如何使用协作托儿日程生成器？
+
+1号家庭
+选择此协作社中的家庭数量
+在“1号家庭”一栏中输入您的名字，并点选旁边的颜色框
+在日历上标记出您无法承担托儿工作的日期。如需标记每周的同一天，请单击该天的名称（如您每星期二都有事，请单击星期二）
+当您完成标注后，请点击网页底部“链接日程”一栏，网页将自动复制日程表并生成链接，您可将自动复制的链接发送给2号家庭
+
+2号家庭（此后的每个家庭可以此类推）
+打开您从1号家庭（或前一个家庭）处获得的链接
+在“2号家庭”（或您家庭的标号）一栏中输入您的名字，并点选旁边的颜色框
+在日历上标记出您无法承担托儿工作的日期
+当您完成标注后，请点击网页底部“链接日程”一栏，网页将自动复制日程表并生成链接，您可将自动复制的链接发送给下一个家庭
+
+最后一个填写日程的家庭
+当所有人填写完毕后，请确认每个家庭栏都已被填写，所有的相关颜色都在日程表上有所体现。点击网页底部“创建日程”一栏生成日程表
+根据每个家庭的不同情况，这一日程表会在最大程度上公平分配托儿工作。如果您因任何原因不满意这份日程，您可以再次点击“创建日程”，生成同样条件下一份不同的日程表
+要分享此日程表，请点击“链接日程”一栏，生成新的表格链接。或点击“下载日程”一栏，获取此日程表的html格式副本
+
+其它问题
+如需包括或排除周末，请使用表格上方的“周末”按钮进行切换
+在生成日程表后，如需修改您的时间，请点击表格上方的“修改时间/展示日程”按钮进行切换
+如需修改最终日程，请点选各个家庭的代表颜色，并重新分配该家庭承担托儿工作的日期。您可重新下载和分享这一新的日程表`;
+     jump_to = "跳至: ";
+     weekendsOFF = "不包括周末";
+     weekendsON = "包括周末";
+     showschedule = "展示日程";
+     changeav = "修改日程";
+     reset_button = "重置";
+     sun = "周日";
+     mon = "周一";
+     tue = "周二";
+     wed = "周三";
+     thu = "周四";
+     fri = "周五";
+     sat = "周六";
+     next_button = "后";
+     prev_button = "前";
+     familynumlabel = "可承担托儿工作的人数: ";
+     family = "家庭";
+     create_schedule = "创建日程";
+     download_schedule = "下载日程";
+     link_calendar = "链接日程 ";
+     link_copied = "链接已复制";
   }
 
   document.getElementById("title").innerHTML = cccc;
