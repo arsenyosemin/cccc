@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <link href="assets/cccc-16.ico" rel="shortcut icon" type="image/x-icon" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!-- HTML Meta Tags -->
   <meta name="description" content="The CCCC is a simple tool that allows groups of parents and other caregivers to automatically generate a fairly distributed cooperative childcare schedule.">
 
@@ -33,6 +35,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
           integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+          <script src="https://kit.fontawesome.com/f9e575458f.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -41,11 +44,11 @@
         <div class="card-header" id="monthAndYear">
           <div class="mb-2 form-inline">
             <button id="instruction_button" type="button" class="btn btn-info" data-toggle="collapse" data-target="#instructions">Instructions</button>
-            &nbsp<a id ="explainer" href="https://docs.google.com/document/d/1UmfWCSgtZPR6o3B1lfsqi51bADjnDvMrDLg1M2fTIt4/preview" target="_blank" class="col-sm-2 btn btn-info">Explainer</a>
-            &nbsp<a id="faq" href="https://docs.google.com/document/d/14LMT4s6yDI4tcYk30ME1ITWkQC4pIXPVrQoioQLdbLM/preview" target="_blank" class="col-sm-2 btn btn-info">FAQ</a>
-            &nbsp<a id="forms" href="documents.html" target="_blank" class="col-sm-2 btn btn-info">Sample Forms</a>
+            &nbsp;<a id ="explainer" href="https://docs.google.com/document/d/1UmfWCSgtZPR6o3B1lfsqi51bADjnDvMrDLg1M2fTIt4/preview" target="_blank" class="col-sm-2 btn btn-info">Explainer</a>
+            &nbsp;<a id="faq" href="https://docs.google.com/document/d/14LMT4s6yDI4tcYk30ME1ITWkQC4pIXPVrQoioQLdbLM/preview" target="_blank" class="col-sm-2 btn btn-info">FAQ</a>
+            &nbsp;<a id="forms" href="documents.html" target="_blank" class="col-sm-2 btn btn-info">Sample Forms</a>
             <div class="col-sm-4 ml-auto" style="text-align:right"><h1 id="cccc" class="lead" >Covid Childcare Coop Calculator</h1>
-            <b onclick="changeLang('en')">english</b>&nbsp-&nbsp<b onclick="changeLang('es')">español</b>&nbsp-&nbsp<b onclick="changeLang('zh')">中文</b></div>
+            <b onclick="changeLang('en')">english</b>&nbsp;-&nbsp;<b onclick="changeLang('es')">español</b>&nbsp;-&nbsp;<b onclick="changeLang('zh')">中文</b>&nbsp;-&nbsp;<b onclick="changeLang('pt')">português</b></div>
             <div id="instructions" style="white-space: pre-wrap;" class="collapse">How to use the CCCC
 
 Family 1:
@@ -85,9 +88,9 @@ To modify the final schedule, select family colors as you did for the availabili
                   <option value="2020">2020</option>
                   <option value="2021">2021</option>
                 </select>
-                &nbsp<input type="button" class="col-sm-2 btn btn-outline-primary" id="toggleWkdays" onclick="toggleWeekdays()" on="Weekends ON" off="Weekends OFF" value="Weekends OFF">
-                &nbsp<input type="button" class="col-sm-3 btn btn-outline-primary" id="toggleSched" onclick="toggleSchedule()" sched="Show Schedule" av="Change Availabilities" value="Show Schedule">
-                &nbsp<button id="rst" class="btn ml-auto col-sm-1 btn-danger" onclick="resetCalendar()">Reset</button>
+                &nbsp;<input type="button" class="col-sm-2 btn btn-outline-primary" id="toggleWkdays" onclick="toggleWeekdays()" on="Weekends ON" off="Weekends OFF" value="Weekends OFF">
+                &nbsp;<input type="button" class="col-sm-3 btn btn-outline-primary" id="toggleSched" onclick="toggleSchedule()" sched="Show Schedule" av="Change Availabilities" value="Show Schedule">
+                &nbsp;<button id="rst" class="btn ml-auto col-sm-1 btn-danger" onclick="resetCalendar()">Reset</button>
               </div>
         </div>
         <table class="table table-bordered " style="table-layout: fixed" id="calendar">
@@ -135,13 +138,13 @@ To modify the final schedule, select family colors as you did for the availabili
                 <label id="famnumlab" class="lead col-sm-3" for="familyNumber">Number of Caretakers: </label><input onchange="familyText()" class="form-control col-sm-1" type="number" id="familyNumber" min="2" max="7" value="4"><div class="col-sm-3"></div>
             </div>
         <div id="familyText" class="form-inline">
-            <textarea id="family1" style="background: linear-gradient(to top,pink 0% 14.28%, white 14.28% 100%)" class="form-control col-sm-5" rows="1">family 1</textarea><button id="btn1" clicked style="background-color: pink" class="btn btn-outline-dark col-sm-1">x</button>
-            <textarea id="family2" style="background: linear-gradient(to top,blue 0% 14.28%, white 14.28% 100%)" class="form-control col-sm-5" rows="1">family 2</textarea><button id="btn2" class="btn btn-outline-dark col-sm-1">x</button>
-            <textarea id="family3" style="background: linear-gradient(to top,green 0% 14.28%, white 14.28% 100%)" class="form-control col-sm-5" rows="1">family 3</textarea><button id="btn3" class="btn btn-outline-dark col-sm-1">x</button>
-            <textarea id="family4" style="background: linear-gradient(to top,yellow 0% 14.28%, white 14.28% 100%)" class="form-control col-sm-5" rows="1">family 4</textarea><button id="btn4" class="btn btn-outline-dark col-sm-1">x</button>
-            <textarea id="family5" hidden style="background: linear-gradient(to top,orange 0% 14.28%, white 14.28% 100%)" class="form-control col-sm-5" rows="1">family 5</textarea><button hidden id="btn5" class="btn btn-outline-dark col-sm-1">x</button>
-            <textarea id="family6" hidden style="background: linear-gradient(to top,purple 0% 14.28%, white 14.28% 100%)" class="form-control col-sm-5" rows="1">family 6</textarea><button hidden id="btn6" class="btn btn-outline-dark col-sm-1">x</button>
-            <textarea id="family7" hidden style="background: linear-gradient(to top,red 0% 14.28%, white 14.28% 100%)" class="form-control col-sm-5" rows="1">family 7</textarea><button hidden id="btn7" class="btn btn-outline-dark col-sm-1">x</button>
+            <textarea id="family1" style="background: linear-gradient(to top,pink 0% 14.28%, white 14.28% 100%)" class="form-control col-sm-5" rows="1">family 1</textarea><button id="btn1" clicked style="background-color: pink" class="btn btn-outline-dark col-sm-1"><i class="fas fa-highlighter"></i></button>
+            <textarea id="family2" style="background: linear-gradient(to top,blue 0% 14.28%, white 14.28% 100%)" class="form-control col-sm-5" rows="1">family 2</textarea><button id="btn2" class="btn btn-outline-dark col-sm-1"><i class="fas fa-highlighter"></i></button>
+            <textarea id="family3" style="background: linear-gradient(to top,green 0% 14.28%, white 14.28% 100%)" class="form-control col-sm-5" rows="1">family 3</textarea><button id="btn3" class="btn btn-outline-dark col-sm-1"><i class="fas fa-highlighter"></i></button>
+            <textarea id="family4" style="background: linear-gradient(to top,yellow 0% 14.28%, white 14.28% 100%)" class="form-control col-sm-5" rows="1">family 4</textarea><button id="btn4" class="btn btn-outline-dark col-sm-1"><i class="fas fa-highlighter"></i></button>
+            <textarea id="family5" hidden style="background: linear-gradient(to top,orange 0% 14.28%, white 14.28% 100%)" class="form-control col-sm-5" rows="1">family 5</textarea><button hidden id="btn5" class="btn btn-outline-dark col-sm-1"><i class="fas fa-highlighter"></i></button>
+            <textarea id="family6" hidden style="background: linear-gradient(to top,purple 0% 14.28%, white 14.28% 100%)" class="form-control col-sm-5" rows="1">family 6</textarea><button hidden id="btn6" class="btn btn-outline-dark col-sm-1"><i class="fas fa-highlighter"></i></button>
+            <textarea id="family7" hidden style="background: linear-gradient(to top,red 0% 14.28%, white 14.28% 100%)" class="form-control col-sm-5" rows="1">family 7</textarea><button hidden id="btn7" class="btn btn-outline-dark col-sm-1"><i class="fas fa-highlighter"></i></button>
         </div>
 
         <br/>
@@ -181,7 +184,7 @@ To modify the final schedule, select family colors as you did for the availabili
 <footer class="page-footer font-small">
   <div class="footer-copyright text-center py-3">
     <a href="mailto:covidchildcarecoop@gmail.com">Contact Us</a><br>
-    © 2020 MIT License <a href="https://www.twitter.com/bigmeaninternet">@bigmeaninternet</a> <a href="https://www.twitter.com/thatfrood">@thatfrood</a> <a href="https://www.twitter.com/ithekai">@ithekai</a> <a href="https://www.twitter.com/janedotx">@janedotx</a> <a href="https://www.twitter.com/drldcsta">@drldcsta</a> <a href="https://www.twitter.com/chrismdesa">@chrismdesa</a> <a href="https://www.twitter.com/engelxiety">@engelxiety</a> <a href="https://www.twitter.com/notsklawface">@notsklawface</a> <a href="https://www.twitter.com/conniekang">@conniekang</a><br><br>
+    © 2020 MIT License <a href="https://www.twitter.com/bigmeaninternet">@bigmeaninternet</a> <a href="https://www.twitter.com/thatfrood">@thatfrood</a> <a href="https://www.twitter.com/ithekai">@ithekai</a> <a href="https://www.twitter.com/janedotx">@janedotx</a> <a href="https://www.twitter.com/drldcsta">@drldcsta</a> <a href="https://www.twitter.com/chrismdesa">@chrismdesa</a> <a href="https://www.twitter.com/engelxiety">@engelxiety</a> <a href="https://www.twitter.com/notsklawface">@notsklawface</a> <a href="https://www.twitter.com/conniekang">@conniekang</a> <a href="https://www.twitter.com/marinfanjoylabrenz">@marinfanjoylabrenz</a><br><br>
   </div>
 </footer>
 </html>

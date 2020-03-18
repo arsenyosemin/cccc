@@ -39,7 +39,8 @@ document.addEventListener('click', function(event){
     if(event.target.matches('#o'+days[i])){
       daySelect(i);
     }
-    if(event.target.matches('#'+families[i][1])){
+    if(event.target.matches('#'+families[i][1]) ||
+        event.target.parentNode.matches('#'+families[i][1])){
       familySelect(i);
     }
   }
@@ -64,7 +65,7 @@ document.addEventListener('keyup',function(event){
       familyNames[i]=document.getElementById(families[i][0]).value
     }
   }
-},);
+},false);
 
 let monthAndYear = document.getElementById("monthAndYear");
 loadCalendar();
@@ -156,8 +157,8 @@ function exportCalendar(){
 function familySelect(i) {
     let element = document.getElementById(families[i][1]);
     let prevelement = document.getElementById(families[currentFamily][1]);
-    prevelement.toggleAttribute('clicked');
-    element.toggleAttribute('clicked');
+    toggle(prevelement,'clicked');
+    toggle(element,'clicked');
     currentFamily = i;
     prevelement.removeAttribute('style');
     element.style.background=families[currentFamily][2];
@@ -192,9 +193,9 @@ function select(element,input=true) {
     }
     let clicked = false;
     if(input){
-      clicked = element.toggleAttribute(families[currentFamily][0]);
-    }else{clicked = element.toggleAttribute("o"+families[currentFamily][0]);}
-    let color = 'linear-gradient(to bottom';
+      clicked = toggle(element,families[currentFamily][0]);
+    }else{clicked = toggle(element,"o"+families[currentFamily][0]);}
+    let color = 'linear-gradient(180deg';
     let count = 0;
     let lastColor='';
     for(let h=0;h<families.length;h++){
@@ -203,13 +204,13 @@ function select(element,input=true) {
         bool = element.hasAttribute(families[h][0]);
       }else {bool = element.hasAttribute("o"+families[h][0]);}
       if(bool){
-        color += ", "+families[h][2]+" "+(count*14.28)+"% "+((count+1)*14.28)+"%";
+        color += ", "+families[h][2]+" "+(count*14.28)+"%, "+families[h][2]+" "+((count+1)*14.28)+"%";
         count++;
       }
     }
-    color += ",white "+(count*14.28)+"% 100%)";
+    color += ",white "+(count*14.28)+"%, white 100%);";
     if(count>0){
-      element.style.background=color;
+      element.setAttribute("style","background:"+color);
     }else{element.removeAttribute('style');}
     if(input){
       if(clicked){
@@ -265,7 +266,7 @@ function createWeekOptions(year){
   if(firstMonday<=1){firstMonday=2-firstMonday;}
   else{firstMonday=9-firstMonday;}
   let monday = new Date(year,0,firstMonday);
-  let options = {weekday: "long", month: "2-digit",
+  let options = {weekday: "short", month: "2-digit",
     day: "2-digit" };
   for(let i = 0;i<52;i++){
     let option = document.createElement("option");
@@ -391,14 +392,24 @@ function showCalendar(week, year, reset,av=false,sch=false,clear=2) {
 
 }
 
+function toggle(element,attribute){
+  var id = element.id;
+  if(element.hasAttribute(attribute)){
+    element.removeAttribute(attribute);
+    return false;
+  }else {
+    element.setAttribute(attribute,'');
+    return true;}
+}
+
 function toggleSchedule(s=false){
   if(!(s && !document.getElementById('ocalendar').hasAttribute('hidden'))){
-    let hidden = document.getElementById('ocalendar').toggleAttribute('hidden');
-    document.getElementById('year').toggleAttribute('disabled');
-    document.getElementById('week').toggleAttribute('disabled');
-    document.getElementById('previous').toggleAttribute('disabled');
-    document.getElementById('next').toggleAttribute('disabled');
-    document.getElementById('calendar').toggleAttribute('hidden');
+    let hidden = toggle(document.getElementById('ocalendar'),'hidden');
+    toggle(document.getElementById('year'),'disabled');
+    toggle(document.getElementById('week'),'disabled');
+    toggle(document.getElementById('previous'),'disabled');
+    toggle(document.getElementById('next'),'disabled');
+    toggle(document.getElementById('calendar'),'hidden');
     if(hidden){
       context = 'Availability';
       document.getElementById('toggleSched').value=document.getElementById('toggleSched').getAttribute("sched");
@@ -648,64 +659,64 @@ function downloadSchedule(){
 // the logic here: try to sort the least available families first, and try to fit them in the least available days if possible, so that very available days and very available families
 // are last to assign and are likely to be fillable. The unavailability count of the other unavailable families is decreased by 1 each time a family is assigned in order to spread out the distribution more evenly
 // a very unavailable family will still be first in the queue multiple times before it evens out and they begin alternating assignments
-function alg(){
-  let toggleList = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1];
-  let fDaysAv = [];
-  let found = false;
-  let idealDays = Math.floor(20/familyNumber);
-  if(!weekdayOnly){
-    idealDays = Math.floor(28/familyNumber);
-  }
-
-  let calAv = [[0],[1],[2],[3],[4],[5],[6],[7],[8],[9],[10],[11],[12],[13],[14],[15],[16],[17],[18],[19],[20],[21],[22],[23],[24],[25],[26],[27]];
-  for(let i =0;i<familyNumber;i++){
-    fDaysAv.push([i,0,unavailabilities[i].length]);
-    for(let j=0;j<unavailabilities[i].length;j++){
-      calAv[unavailabilities[i][j]].push(i);
-    }
-  }
-  calAv.sort(function(a,b){
-    return b.length - a.length;
-  });
-  fDaysAv.sort(function(a,b){
-    return b[2] - a[2];
-  });
-  let day = 0;
-  let av = [];
-  for(let i=0;i<calAv.length;i++){
-    found=false;
-    day = calAv[i][0]
-    if(!(weekdayOnly & (day%7==0||day%7==6))){
-      av = calAv[i].slice(1);
-      //idmod is for multiple passes on attempts to insert values. "idealDays" is the ideal number of days a person should have in the schedule, and idmod modifies that
-      for(let idmod=0;idmod<2;idmod++){
-        for(let f=0;f<fDaysAv.length;f++){
-          if(fDaysAv[f][1]<(idealDays+idmod)){
-            if(!av.includes(fDaysAv[f][0])){
-              toggleList[day]=fDaysAv[f][0];
-              fDaysAv[f][1]++;
-              for(let f=0;f<fDaysAv.length;f++){
-                if(av.includes(fDaysAv[f][0])){
-                  fDaysAv[f][2]--;
-                }
-              }
-              fDaysAv.sort(function(a,b){
-                return b[2] - a[2];
-              });
-              found = true;
-              break;
-            }
-          }
-        }
-        if(found==true){
-          break;
-        }
-      }
-    }
-  }
-
-  return toggleList;
-}
+// function alg(){
+//   let toggleList = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1];
+//   let fDaysAv = [];
+//   let found = false;
+//   let idealDays = Math.floor(20/familyNumber);
+//   if(!weekdayOnly){
+//     idealDays = Math.floor(28/familyNumber);
+//   }
+//
+//   let calAv = [[0],[1],[2],[3],[4],[5],[6],[7],[8],[9],[10],[11],[12],[13],[14],[15],[16],[17],[18],[19],[20],[21],[22],[23],[24],[25],[26],[27]];
+//   for(let i =0;i<familyNumber;i++){
+//     fDaysAv.push([i,0,unavailabilities[i].length]);
+//     for(let j=0;j<unavailabilities[i].length;j++){
+//       calAv[unavailabilities[i][j]].push(i);
+//     }
+//   }
+//   calAv.sort(function(a,b){
+//     return b.length - a.length;
+//   });
+//   fDaysAv.sort(function(a,b){
+//     return b[2] - a[2];
+//   });
+//   let day = 0;
+//   let av = [];
+//   for(let i=0;i<calAv.length;i++){
+//     found=false;
+//     day = calAv[i][0]
+//     if(!(weekdayOnly & (day%7==0||day%7==6))){
+//       av = calAv[i].slice(1);
+//       //idmod is for multiple passes on attempts to insert values. "idealDays" is the ideal number of days a person should have in the schedule, and idmod modifies that
+//       for(let idmod=0;idmod<2;idmod++){
+//         for(let f=0;f<fDaysAv.length;f++){
+//           if(fDaysAv[f][1]<(idealDays+idmod)){
+//             if(!av.includes(fDaysAv[f][0])){
+//               toggleList[day]=fDaysAv[f][0];
+//               fDaysAv[f][1]++;
+//               for(let f=0;f<fDaysAv.length;f++){
+//                 if(av.includes(fDaysAv[f][0])){
+//                   fDaysAv[f][2]--;
+//                 }
+//               }
+//               fDaysAv.sort(function(a,b){
+//                 return b[2] - a[2];
+//               });
+//               found = true;
+//               break;
+//             }
+//           }
+//         }
+//         if(found==true){
+//           break;
+//         }
+//       }
+//     }
+//   }
+//
+//   return toggleList;
+// }
 
 function shuffle(a) {
         var j, x, i;

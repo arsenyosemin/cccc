@@ -166,6 +166,72 @@ Para cambiar el horario final, seleccionar los colores de la familia como dice a
      link_copied = "链接已复制";
   }
 
+  if(lang=="pt"){
+    explainer_link="https://docs.google.com/document/d/17wxn2EOBmuS8MUTIXf0PFz7JpxSL8IYDbZCBd9M93ro/preview";
+     explainer_button="Explicação";
+     instruction_button="Instruções"
+     faq_link = "https://docs.google.com/document/d/1jBi1QC3b3s0_sygH5YG4Dj-jo1ADzAZoewzsvULFGI0/preview";
+     faq_button = "FAQ";//"Preguntas Frecuentes";
+     forms_button = "Exemplos de formulários";
+     cccc = "Covid Childcare Coop Calculator";
+     instructions_text = `Instruções
+Como usar o CCCC
+
+Família 1:
+
+Indicar o número de cuidadores/famílias do seu co-op.
+Inserir o seu nome no campo “Família 1,” depois clicar na caixa colorida ao lado.
+Assinalar os dias no calendário em que não está disponível. Para assinalar o mesmo dia para todas as semanas, clicar no nome desse dia (se não tiver disponibilidade à terça-feira, clicar em “Terça-feira”).
+Quando acabar de assinalar a indisponibilidade, clicar em “Fazer link do calendário” em baixo; o programa copiará automaticamente o link para depois poder mandá-lo à Família 2.
+
+
+Família 2-X:
+
+Abrir o link que recebeu de Família 1.
+Inserir o seu nome no campo “Família  X”, depois clicar na caixa colorida ao lado.
+Assinalar os dias do calendário em que não está disponível.
+Quando acabar de marcar a indisponibilidade, clicar em “Fazer link do calendário” em baixo e colar o link (automaticamente copiado) para mandar à próxima família.
+
+
+Última família:
+
+Depois de todos marcarem a sua indisponibilidade (todos os campos “Família” devem estar cheios e todas a cores representadas no calendário), clicar em “Criar horário” em baixo.
+O calendário agora mostra um horário aproximadamente justo conforme as vossas disponibilidades. (Se por alguma razão não gostar do horário, clicar em “Criar horário” outra vez para gerar outra opção justa com as mesmas restrições).
+
+Para partilhar o calendário, clicar em “Fazer link do calendário” para criar um link do horário, ou usar “Fazer download do horário” para receber um ficheiro HTML do seu horário.
+
+
+Soluções de problemas:
+
+Para incluir ou excluir os fins-de-semana, usar a opção “Fins-de-semana SIM/NÃO.”
+
+Para voltar a modificar o calendário de disponibilidade depois de ter criado um horário, clicar em “Mostrar horário/Mudar disponibilidades” em cima.
+
+Para modificar o horário final, seleccionar cores para as famílias como fez para o calendário de disponibilidades e use-as para mudar os dias atribuídos (se assim quiser). Depois fazer o download ou partilhar normalmente.
+`;
+     jump_to = "Saltar para: ";
+     weekendsOFF = "Fins-de-semana NÃO";
+     weekendsON = "Fins-de-semana SIM";
+     showschedule = "Mostrar horário";
+     changeav = "Mudar disponibilidades";
+     reset_button = "Reiniciar";
+     sun = "Dom.";
+     mon = "2ᵃ";
+     tue = "3ᵃ";
+     wed = "4ᵃ";
+     thu = "5ᵃ";
+     fri = "6ᵃ";
+     sat = "Sab.";
+     next_button = "Seguinte";
+     prev_button = "Anterior";
+     familynumlabel = "Número de Cuidadores: ";
+     family = "Familia";
+     create_schedule = "Criar horário";
+     download_schedule = "Fazer download do horário";
+     link_calendar = "Fazer link do calendário";
+     link_copied = "Link copiado!";
+  }
+
   document.getElementById("title").innerHTML = cccc;
   document.getElementById("instruction_button").innerHTML = instruction_button;
   document.getElementById("explainer").setAttribute("href",explainer_link);
