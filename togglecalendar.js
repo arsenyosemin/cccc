@@ -266,7 +266,7 @@ function createWeekOptions(year){
   if(firstMonday<=1){firstMonday=2-firstMonday;}
   else{firstMonday=9-firstMonday;}
   let monday = new Date(year,0,firstMonday);
-  let options = {weekday: "long", month: "2-digit",
+  let options = {weekday: "short", month: "2-digit",
     day: "2-digit" };
   for(let i = 0;i<52;i++){
     let option = document.createElement("option");
