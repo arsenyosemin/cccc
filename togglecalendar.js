@@ -39,7 +39,8 @@ document.addEventListener('click', function(event){
     if(event.target.matches('#o'+days[i])){
       daySelect(i);
     }
-    if(event.target.matches('#'+families[i][1])){
+    if(event.target.matches('#'+families[i][1]) ||
+        event.target.parentNode.matches('#'+families[i][1])){
       familySelect(i);
     }
   }
