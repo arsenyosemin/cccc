@@ -555,7 +555,7 @@ function submit(){
   currentFamily=oldFamily;
   toggleSchedule(true);
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'count');
+  xhr.open('GET', 'count', true);
   xhr.send(null);
 }
 
@@ -655,64 +655,64 @@ function downloadSchedule(){
 // the logic here: try to sort the least available families first, and try to fit them in the least available days if possible, so that very available days and very available families
 // are last to assign and are likely to be fillable. The unavailability count of the other unavailable families is decreased by 1 each time a family is assigned in order to spread out the distribution more evenly
 // a very unavailable family will still be first in the queue multiple times before it evens out and they begin alternating assignments
-function alg(){
-  let toggleList = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1];
-  let fDaysAv = [];
-  let found = false;
-  let idealDays = Math.floor(20/familyNumber);
-  if(!weekdayOnly){
-    idealDays = Math.floor(28/familyNumber);
-  }
-
-  let calAv = [[0],[1],[2],[3],[4],[5],[6],[7],[8],[9],[10],[11],[12],[13],[14],[15],[16],[17],[18],[19],[20],[21],[22],[23],[24],[25],[26],[27]];
-  for(let i =0;i<familyNumber;i++){
-    fDaysAv.push([i,0,unavailabilities[i].length]);
-    for(let j=0;j<unavailabilities[i].length;j++){
-      calAv[unavailabilities[i][j]].push(i);
-    }
-  }
-  calAv.sort(function(a,b){
-    return b.length - a.length;
-  });
-  fDaysAv.sort(function(a,b){
-    return b[2] - a[2];
-  });
-  let day = 0;
-  let av = [];
-  for(let i=0;i<calAv.length;i++){
-    found=false;
-    day = calAv[i][0]
-    if(!(weekdayOnly & (day%7==0||day%7==6))){
-      av = calAv[i].slice(1);
-      //idmod is for multiple passes on attempts to insert values. "idealDays" is the ideal number of days a person should have in the schedule, and idmod modifies that
-      for(let idmod=0;idmod<2;idmod++){
-        for(let f=0;f<fDaysAv.length;f++){
-          if(fDaysAv[f][1]<(idealDays+idmod)){
-            if(!av.includes(fDaysAv[f][0])){
-              toggleList[day]=fDaysAv[f][0];
-              fDaysAv[f][1]++;
-              for(let f=0;f<fDaysAv.length;f++){
-                if(av.includes(fDaysAv[f][0])){
-                  fDaysAv[f][2]--;
-                }
-              }
-              fDaysAv.sort(function(a,b){
-                return b[2] - a[2];
-              });
-              found = true;
-              break;
-            }
-          }
-        }
-        if(found==true){
-          break;
-        }
-      }
-    }
-  }
-
-  return toggleList;
-}
+// function alg(){
+//   let toggleList = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1];
+//   let fDaysAv = [];
+//   let found = false;
+//   let idealDays = Math.floor(20/familyNumber);
+//   if(!weekdayOnly){
+//     idealDays = Math.floor(28/familyNumber);
+//   }
+//
+//   let calAv = [[0],[1],[2],[3],[4],[5],[6],[7],[8],[9],[10],[11],[12],[13],[14],[15],[16],[17],[18],[19],[20],[21],[22],[23],[24],[25],[26],[27]];
+//   for(let i =0;i<familyNumber;i++){
+//     fDaysAv.push([i,0,unavailabilities[i].length]);
+//     for(let j=0;j<unavailabilities[i].length;j++){
+//       calAv[unavailabilities[i][j]].push(i);
+//     }
+//   }
+//   calAv.sort(function(a,b){
+//     return b.length - a.length;
+//   });
+//   fDaysAv.sort(function(a,b){
+//     return b[2] - a[2];
+//   });
+//   let day = 0;
+//   let av = [];
+//   for(let i=0;i<calAv.length;i++){
+//     found=false;
+//     day = calAv[i][0]
+//     if(!(weekdayOnly & (day%7==0||day%7==6))){
+//       av = calAv[i].slice(1);
+//       //idmod is for multiple passes on attempts to insert values. "idealDays" is the ideal number of days a person should have in the schedule, and idmod modifies that
+//       for(let idmod=0;idmod<2;idmod++){
+//         for(let f=0;f<fDaysAv.length;f++){
+//           if(fDaysAv[f][1]<(idealDays+idmod)){
+//             if(!av.includes(fDaysAv[f][0])){
+//               toggleList[day]=fDaysAv[f][0];
+//               fDaysAv[f][1]++;
+//               for(let f=0;f<fDaysAv.length;f++){
+//                 if(av.includes(fDaysAv[f][0])){
+//                   fDaysAv[f][2]--;
+//                 }
+//               }
+//               fDaysAv.sort(function(a,b){
+//                 return b[2] - a[2];
+//               });
+//               found = true;
+//               break;
+//             }
+//           }
+//         }
+//         if(found==true){
+//           break;
+//         }
+//       }
+//     }
+//   }
+//
+//   return toggleList;
+// }
 
 function shuffle(a) {
         var j, x, i;
