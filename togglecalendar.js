@@ -194,7 +194,7 @@ function select(element,input=true) {
     if(input){
       clicked = toggle(element,families[currentFamily][0]);
     }else{clicked = toggle(element,"o"+families[currentFamily][0]);}
-    let color = 'linear-gradient(to bottom';
+    let color = 'linear-gradient(180deg';
     let count = 0;
     let lastColor='';
     for(let h=0;h<families.length;h++){
@@ -203,13 +203,13 @@ function select(element,input=true) {
         bool = element.hasAttribute(families[h][0]);
       }else {bool = element.hasAttribute("o"+families[h][0]);}
       if(bool){
-        color += ", "+families[h][2]+" "+(count*14.28)+"% "+((count+1)*14.28)+"%";
+        color += ", "+families[h][2]+" "+(count*14.28)+"%, "+families[h][2]+" "+((count+1)*14.28)+"%";
         count++;
       }
     }
-    color += ",white "+(count*14.28)+"% 100%)";
+    color += ",white "+(count*14.28)+"%, white 100%);";
     if(count>0){
-      element.style.background=color;
+      element.setAttribute("style","background:"+color);
     }else{element.removeAttribute('style');}
     if(input){
       if(clicked){
