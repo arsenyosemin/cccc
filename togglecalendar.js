@@ -545,7 +545,7 @@ function submit(){
   currentFamily=oldFamily;
   toggleSchedule(true);
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'count', true);
+  xhr.open('GET', 'count_calendar_generation', true);
   xhr.send(null);
 }
 
@@ -634,6 +634,9 @@ function downloadSchedule(){
   var url = window.URL.createObjectURL(data);
 
   document.getElementById('download_link').href = url;
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'count_schedule_sharing', true);
+  xhr.send(null);
 }
 
 //logic for generating toggleList fairly
