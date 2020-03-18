@@ -545,7 +545,7 @@ function submit(){
   currentFamily=oldFamily;
   toggleSchedule(true);
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', '/count');
+  xhr.open('GET', 'count', true);
   xhr.send(null);
 }
 
