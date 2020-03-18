@@ -232,6 +232,67 @@ Para modificar o horário final, seleccionar cores para as famílias como fez pa
      link_copied = "Link copiado!";
   }
 
+  if(lang=="fr"){
+    explainer_link="https://docs.google.com/document/d/166Opj4We9-xDbvMKSbsetMd7FKsTa61I3xD0sKJS6xE/preview";
+     explainer_button="Explication";
+     instruction_button="Instructions"
+     faq_link = "https://docs.google.com/document/d/1wNg-NMutSL8QGWRlfHHUXnGrimsyeEfjXaW5N31j8LE/preview";
+     faq_button = "FAQ";//"Preguntas Frecuentes";
+     forms_button = "Exemples de Formulaires";
+     cccc = "Covid Childcare Coop Calculator";
+     instructions_text = `Comment utiliser le CCCC
+
+Famille 1:
+
+Sélectionnez le nombre de familles dans la coopérative
+Ecrivez votre nom dans le champ «Famille 1», puis cliquez sur la case colorée à côté
+Marquez les jours sur le calendrier où vous n'êtes pas disponible. Pour marquer le même jour chaque semaine, cliquez sur le nom de ce jour. (Si vous n'êtes pas disponible le mardi, cliquez sur mardi.)
+Lorsque vous avez terminé de marquer la disponibilité, cliquez sur le bouton "Lier le calendrier" en bas et il copiera automatiquement le lien généré pour que vous l'envoyiez à Family 2
+
+Famille 2-X:
+
+Ouvrez le lien que vous obtenez de la famille X-1
+Ecrivez votre nom dans le champ «Famille X», puis cliquez sur la case colorée à côté
+Marquez les jours sur le calendrier lorsque vous n'êtes pas disponible
+Lorsque vous avez terminé de marquer la disponibilité, cliquez sur le bouton "Lier le calendrier" en bas et collez le lien copié automatiquement pour l'envoyer à la famille suivante
+
+Dernière famille:
+
+Une fois que tout le monde a indiqué sa disponibilité (chaque champ familial doit être rempli et toutes les couleurs représentées sur le calendrier), cliquez sur le bouton «Créer un planning» en bas
+Le calendrier représente désormais un emploi du temps plus ou moins juste compte tenu de vos disponibilités. (Si pour une raison quelconque il ne vous plait pas, cliquez à nouveau sur le bouton "Créer" pour générer une autre version également juste, avec les mêmes restrictions)
+Pour partager le calendrier, utilisez le bouton «Lier calendrier» pour créer un lien au calendrier, ou utilisez le bouton «Télécharger le calendrier» pour télécharger un fichier html de votre calendrier.
+
+Dépannage:
+
+Pour exclure ou inclure des jours de week-end, utilisez la bascule «Week-ends» en haut
+
+Pour revenir en arrière et modifier le calendrier de disponibilité après avoir généré un calendrier, cliquez sur le bouton "Modifier la disponibilité" / "Afficher le calendrier" en haut
+
+Pour modifier le calendrier final, sélectionnez les couleurs de la famille comme vous l'avez fait pour le calendrier de disponibilité et utilisez-les pour réassigner les jours planifiés (si vous le souhaitez), puis téléchargez ou partagez comme d'habitude
+ Depois fazer o download ou partilhar normalmente.`;
+     jump_to = "Passer À: ";
+     weekendsOFF = "Weekends NON";
+     weekendsON = "Weekends OUI";
+     showschedule = "Montrer Calendrier";
+     changeav = "Changer Mes Disponibilités";
+     reset_button = "Réinitialiser";
+     sun = "Lun";
+     mon = "Mar";
+     tue = "Mer";
+     wed = "Jeu";
+     thu = "Ven";
+     fri = "Sam";
+     sat = "Dim";
+     next_button = "Suivante";
+     prev_button = "Précédente";
+     familynumlabel = "Nombre de Gardiens: ";
+     family = "Famille";
+     create_schedule = "Créer En Emploi du Temps";
+     download_schedule = "Télécharger l'Horaire";
+     link_calendar = "Lien à l'Emploi du Temps";
+     link_copied = "Lien Copié!";
+  }
+
   document.getElementById("title").innerHTML = cccc;
   document.getElementById("instruction_button").innerHTML = instruction_button;
   document.getElementById("explainer").setAttribute("href",explainer_link);

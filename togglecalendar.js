@@ -196,7 +196,7 @@ function select(element,input=true) {
       clicked = toggle(element,families[currentFamily][0]);
     }else{clicked = toggle(element,"o"+families[currentFamily][0]);}
     let color = 'linear-gradient(180deg';
-    let count = 0;
+    let familyAdd = [];
     let lastColor='';
     for(let h=0;h<families.length;h++){
       let bool = false;
@@ -204,12 +204,20 @@ function select(element,input=true) {
         bool = element.hasAttribute(families[h][0]);
       }else {bool = element.hasAttribute("o"+families[h][0]);}
       if(bool){
-        color += ", "+families[h][2]+" "+(count*14.28)+"%, "+families[h][2]+" "+((count+1)*14.28)+"%";
-        count++;
+        familyAdd.push(h);
       }
     }
-    color += ",white "+(count*14.28)+"%, white 100%);";
-    if(count>0){
+    for(let f=0;f<familyAdd.length;f++){
+      if(input){
+        color += ", "+families[familyAdd[f]][2]+" "+(f*14.28)+"%, "+families[familyAdd[f]][2]+" "+((f+1)*14.28)+"%";
+      }else{
+        color += ", "+families[familyAdd[f]][2]+" "+(f*(100/familyAdd.length))+"%, "+families[familyAdd[f]][2]+" "+((f+1)*(100/familyAdd.length))+"%";
+      }
+    }
+    if(input){
+      color += ",white "+(familyAdd.length*14.28)+"%, white 100%);";
+    }else{color += ",white "+((familyAdd.length-1)*(100/familyAdd.length))+"%, white 100%);"}
+    if(familyAdd.length>0){
       element.setAttribute("style","background:"+color);
     }else{element.removeAttribute('style');}
     if(input){
