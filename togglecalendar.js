@@ -544,6 +544,9 @@ function submit(){
   }
   currentFamily=oldFamily;
   toggleSchedule(true);
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', '/count');
+  xhr.send(null);
 }
 
 function downloadSchedule(){
