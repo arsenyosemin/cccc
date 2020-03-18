@@ -151,6 +151,9 @@ function exportCalendar(){
   /* Alert the copied text */
   document.getElementById('copied').setAttribute('style','display:none');
   $('#copied').fadeIn();
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'count_schedule_linking', true);
+  xhr.send(null);
 
 }
 
