@@ -64,7 +64,7 @@ document.addEventListener('keyup',function(event){
       familyNames[i]=document.getElementById(families[i][0]).value
     }
   }
-},);
+},false);
 
 let monthAndYear = document.getElementById("monthAndYear");
 loadCalendar();
@@ -156,8 +156,8 @@ function exportCalendar(){
 function familySelect(i) {
     let element = document.getElementById(families[i][1]);
     let prevelement = document.getElementById(families[currentFamily][1]);
-    prevelement.toggleAttribute('clicked');
-    element.toggleAttribute('clicked');
+    toggle(prevelement,'clicked');
+    toggle(element,'clicked');
     currentFamily = i;
     prevelement.removeAttribute('style');
     element.style.background=families[currentFamily][2];
@@ -192,8 +192,8 @@ function select(element,input=true) {
     }
     let clicked = false;
     if(input){
-      clicked = element.toggleAttribute(families[currentFamily][0]);
-    }else{clicked = element.toggleAttribute("o"+families[currentFamily][0]);}
+      clicked = toggle(element,families[currentFamily][0]);
+    }else{clicked = toggle(element,"o"+families[currentFamily][0]);}
     let color = 'linear-gradient(to bottom';
     let count = 0;
     let lastColor='';
@@ -391,14 +391,24 @@ function showCalendar(week, year, reset,av=false,sch=false,clear=2) {
 
 }
 
+function toggle(element,attribute){
+  var id = element.id;
+  if(element.hasAttribute(attribute)){
+    element.removeAttribute(attribute);
+    return false;
+  }else {
+    element.setAttribute(attribute,'');
+    return true;}
+}
+
 function toggleSchedule(s=false){
   if(!(s && !document.getElementById('ocalendar').hasAttribute('hidden'))){
-    let hidden = document.getElementById('ocalendar').toggleAttribute('hidden');
-    document.getElementById('year').toggleAttribute('disabled');
-    document.getElementById('week').toggleAttribute('disabled');
-    document.getElementById('previous').toggleAttribute('disabled');
-    document.getElementById('next').toggleAttribute('disabled');
-    document.getElementById('calendar').toggleAttribute('hidden');
+    let hidden = toggle(document.getElementById('ocalendar'),'hidden');
+    toggle(document.getElementById('year'),'disabled');
+    toggle(document.getElementById('week'),'disabled');
+    toggle(document.getElementById('previous'),'disabled');
+    toggle(document.getElementById('next'),'disabled');
+    toggle(document.getElementById('calendar'),'hidden');
     if(hidden){
       context = 'Availability';
       document.getElementById('toggleSched').value=document.getElementById('toggleSched').getAttribute("sched");
@@ -544,6 +554,9 @@ function submit(){
   }
   currentFamily=oldFamily;
   toggleSchedule(true);
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'count');
+  xhr.send(null);
 }
 
 function downloadSchedule(){
