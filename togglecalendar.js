@@ -78,6 +78,11 @@ function loadCalendar(){
   let urlParams = new URLSearchParams(queryString);
   if(urlParams.has('lang')){
     changeLanguage(urlParams.get('lang'));
+  }else{
+    let lang = navigator.languages
+    ? navigator.languages[0]
+    : (navigator.language || navigator.userLanguage)
+    changeLanguage(lang);
   }
   if(urlParams.has('familyNumber')){
     av = [[],[],[],[],[],[],[]];

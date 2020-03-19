@@ -1,4 +1,5 @@
 function changeLanguage(lang){
+  lang = lang.substring(0,2);
   let explainer_link="https://docs.google.com/document/d/1UmfWCSgtZPR6o3B1lfsqi51bADjnDvMrDLg1M2fTIt4/preview";
   let explainer_button="Explainer";
   let instruction_button="Instructions";
