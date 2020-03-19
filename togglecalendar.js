@@ -47,6 +47,7 @@ document.addEventListener('click', function(event){
 }, false);
 
 function changeLang(lang){
+  document.getElementById('langmenu').innerHTML=document.getElementById(lang).innerHTML;
   changeLanguage(lang);
   familyNames = [document.getElementById('family1').value,
   document.getElementById('family2').value,
