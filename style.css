@@ -9,3 +9,10 @@ b:hover {
   text-decoration: underline;
   cursor: default;
 }
+th{
+  font-size: calc(8px + (16 - 8) * ((100vw - 300px) / (1600 - 300)));
+}
+tbody#calendar-body td{
+  padding: 1vw;
+  font-size: calc(8px + (16 - 8) * ((100vw - 300px) / (1600 - 300)));
+}
