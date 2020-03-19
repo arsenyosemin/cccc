@@ -318,7 +318,7 @@ Pour modifier le calendrier final, sélectionnez les couleurs de la famille comm
   document.getElementById("thu").innerHTML=thu;
   document.getElementById("fri").innerHTML=fri;
   document.getElementById("sat").innerHTML=sat;
-  document.getElementById("sun").innerHTML=sun;
+  document.getElementById("osun").innerHTML=sun;
   document.getElementById("omon").innerHTML=mon;
   document.getElementById("otue").innerHTML=tue;
   document.getElementById("owed").innerHTML=wed;
