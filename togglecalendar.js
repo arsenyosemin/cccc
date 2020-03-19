@@ -195,8 +195,16 @@ function daySelect(i) {
 // selecting dates
 function select(element,input=true) {
     let day = element.id;
+    if (!input){
+      let oday = element.id.substring(1);
+      if(weekdayOnly){
+        if((oday%7==0 || oday%7==6)){
+          return;
+        }
+      }
+    }
     if(weekdayOnly){
-      if(day%7==0 || day%7==6){
+      if((day%7==0 || day%7==6)){
         return;
       }
     }
