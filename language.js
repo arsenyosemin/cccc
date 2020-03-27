@@ -294,6 +294,121 @@ Pour modifier le calendrier final, sélectionnez les couleurs de la famille comm
      link_copied = "Lien Copié!";
   }
 
+  if(lang=="de"){
+    explainer_link="https://docs.google.com/document/d/1rKLKgIZjznU3KJ0qU3DVXtPtFEYoM1cJ1Gx2K5SseaA/preview";
+     explainer_button="Erkärung";
+     instruction_button="Anleitung"
+     faq_link = "https://docs.google.com/document/d/1MWa39-lXpkmlwxKshvz3zIhhwkYVY4x6Poi4mhkyvVw/preview";
+     faq_button = "FAQ";
+     forms_button = "Beispiel Form";
+     cccc = "Covid Childcare Coop Calculator";
+     instructions_text = `Wie man den CCCC anwendet
+
+Familie 1:
+
+Wählen Sie die Familien Anzahl des Co-op.
+Fügen sie ihren Namen in das Feld Familie 1 hinzu und klicken sie daraufhin die farbige Taste daneben.
+Tragen Sie bitte im Kalender ein an welchen Tagen die sie nicht verfügbar sind.
+Um den gleichen Tag jede Woche zu markieren, klicken sie den Tag an ( wenn sie Dienstags nicht verfügbar sind klicken sie auf Dienstag).
+Wenn sie fertig sind ihre Verfügbarkeit einzutragen, klicken auf  sie auf die “Verknüpfe  Kalender” Taste und es wird automatisch ihren erstellten Link an Familie 2 schicken.
+
+
+Familie 2-X:
+
+Öffnen sie den Link den sie von Familie x-1 bekommen haben.
+Fügen sie ihren Namen in das “Familie X” Feld ein und klicken sie die bunte Box daneben an.
+Markieren sie die Tage an dem sie nicht verfügbar sind.
+Wenn sie fertig sind ihre Verfügbarkeit einzufügen, klicken sie auf den “Verknüpfe Kalender” Taste am Ende der Seite und fügen sie den Link ein um es an die nächste Familie zu senden.
+
+
+Letzte Familie:
+
+Nachdem jeder die Verfügbarkeit eingetragen hat (jede Familie sollte nun im Kalender stehen mit ihren farblichen Kennzeichen), klicken sie auf die “ Kalender erstellen” Taste am Ende der Seite. Der Kalender sollte nun einen vorläufigen Zeitplan anzeigen anhand ihrer Verfügbarkeit. (Wenn ihnen der Zeitplan nicht gefällt, klicken sie die “Herstellen” Taste um eine neue Option zu erstellen). Um den Kalender zu teilen, klicken  Sie auf die
+“Kalender Teilen” Taste um einen Link herzustellen oder laden sie eine html Kopie des Kalenders herunter indem sie die “Kalender Herunterladen” Taste drücken.
+`;
+     jump_to = "Gehe zu: ";
+     weekendsOFF = "Wochenenden NEIN";
+     weekendsON = "Wochenenden JA";
+     showschedule = "Terminplaner anzeigen";
+     changeav = "Verügbarkeit";
+     reset_button = "Zurücksetzen";
+     sun = "Son";
+     mon = "Mon";
+     tue = "Di";
+     wed = "Mi";
+     thu = "Do";
+     fri = "Fr";
+     sat = "Sa";
+     next_button = "Nächster";
+     prev_button = "Vorheriger";
+     familynumlabel = "Anzahl der Betreuer: ";
+     family = "Familie";
+     create_schedule = "Zeitplan erstellen";
+     download_schedule = "Zeitplan herunterladen";
+     link_calendar = "Verknüpfe Kalendar";
+     link_copied = "Link kopiert!";
+  }
+
+  if(lang=="el"){
+    explainer_link="https://docs.google.com/document/d/1Ky9T2_-H72UnducpC32p7-7LvCQgkxkQJdQKD_Elzt0/preview";
+     explainer_button="Τι είναι;";
+     instruction_button="Οδηγίες"
+     faq_link = "https://docs.google.com/document/d/1xor-qv3y1Hs2sWvlWyfq9339K-s38rxsdTuTwGJFCdY/preview";
+     faq_button = "FAQ";
+     forms_button = "Φόρμες - παραδείγματα";
+     cccc = "Covid Childcare Coop Calculator";
+     instructions_text = `Πως χρησιμοποιείται το εργαλείο CCCC
+
+Οικογένεια 1:
+
+Διαλέξτε τον αριθμό οικογενειών στην ομάδα σας.
+Συμπληρώστε το ονοματεπώνυμο σας εκεί που λέει Οικογένεια 1, και πατήστε το χρωματισμένο κουμπί με το στυλό στα δεξιά.
+Σημειώστε τις ημέρες που δεν είστε διαθέσιμος/η στο ημερολόγιο. Για να διαλέξετε τις ίδιες μέρες κάθε εβδομάδα, πατήστε τα χρωματιστά κουμπιά με τις μέρες στην πιο πάνω γραμμή. Π.χ. Εάν δεν είστε διαθέσιμος/η ποτέ την Τρίτη, πατήστε το κουμπί που λέει “Τρίτη”.)
+Όταν έχετε σημειώσει όλη σας την διαθεσιμότητα, πατήστε το κουμπί που λέει “Σύνδεση ημερολογίου” από κάτω, και αυτόματα θα δημιουργηθεί ένας σύνδεσμος που μπορείτε να στείλετε στην Οικογένεια 2.
+
+
+Οικογένεια 2-Χ:
+
+Ανοίξτε το σύνδεσμο που λάβατε από την Οικογένεια Χ-1.
+Συμπληρώστε το ονοματεπώνυμό σας εκεί που λέει Οικογένεια Χ, και πατήστε το χρωματισμένο κουμπί με το στυλό στα δεξιά.
+Σημειώστε τις ημέρες που δεν είστε διαθέσιμος/η στο ημερολόγιο.
+Όταν έχετε σημειώσει όλη σας την διαθεσιμότητα, πατήστε το κουμπί που λέει “Σύνδεση ημερολογίου” από κάτω, και αυτόματα θα δημιουργηθεί ένας σύνδεσμος που μπορείτε να στείλετε στην επόμενη οικογένεια.
+
+
+Τελευταία οικογένεια:
+
+Όταν όλοι (από την πρώτη οικογένεια μέχρι την τελευταία οικογένεια) έχετε σημειώσει τη διαθεσιμότητά σας (και φαίνεται η διαθεσιμότητα του καθενός στο ημερολόγιο) πατήστε το κουμπί “Δημιουργία προγράμματος” από κάτω.
+Το ημερολόγιο δείχνει ένα πρόγραμμα που κανονικά θα βολεύει όλους σας, βασισμένο στη διαθεσιμότητα του καθενός. (Εάν για οποιοδήποτε λόγο δεν σας αρέσει το πρόγραμμα που δημιουργήθηκε, πατήστε ξανά το κουμπί “Δημιουργία προγράμματος” και θα βγει άλλη εκδοχή με τους ίδιους παραμέτρους.)
+Για να μοιραστείτε το ημερολόγιο, χρησιμοποιήστε το κουμπί “Σύνδεσμος ημερολογίου” για να δημιουργήσετε έναν σύνδεσμο, ή το κουμπί “Κατεβάστε το πρόγραμμα”.
+
+Αντιμετώπιση προβλημάτων:
+Για να εξαιρέσετε ή να περιλάβετε Σ/Κ, χρησιμοποιήστε το εργαλείο που λέει “Σ/Κ” που βρίσκεται στο πάνω μέρος της σελίδας.
+Για να κάνετε αλλαγές αφού δημιουργήσετε ένα πρόγραμμα, πατήστε το κουμπί “Αλλαγή διαθεσιμότητας / Δείξτε το πρόγραμμα” στο πάνω μέρος της σελίδας.
+Για να κάνετε αλλαγές στο τελικό πρόγραμμα, διαλέξτε χρώματα για κάθε οικογένεια όπως κάνατε για το πρόγραμμα διαθεσιμότητας, και χρησιμοποιήστε τα για να μοιραστούν αλλιώς οι ημέρες (εάν θέλετε), και μετά κατεβάστε το ή μοιράστε το κανονικά.
+`;
+     jump_to = "Πηγαίντε σε: ";
+     weekendsOFF = "Σ/Κ Μη ενεργοποιημένα";
+     weekendsON = "Σ/Κ Ενεργοποιημένα";
+     showschedule = "Δείξτε το πρόγραμμα";
+     changeav = "Άλλαξτε διαθεσιμότητα";
+     reset_button = "Επαναφόρτωση";
+     sun = "Κυρ";
+     mon = "Δευ";
+     tue = "Τρί";
+     wed = "Τετ";
+     thu = "Πέμ";
+     fri = "Παρ";
+     sat = "Σάβ";
+     next_button = "Επόμενο";
+     prev_button = "Προηγούμενο";
+     familynumlabel = "Αριθμός φροντιστών: ";
+     family = "Οικογένεια";
+     create_schedule = "Δημιουγία προγράμματος";
+     download_schedule = "Κατέβαστε το πρόγραμμα";
+     link_calendar = "Σύνδεση ημερολογίου";
+     link_copied = "Αντιγραφή συνδέσμου";
+  }
+
   document.getElementById("title").innerHTML = cccc;
   document.getElementById("instruction_button").innerHTML = instruction_button;
   document.getElementById("explainer").setAttribute("href",explainer_link);
