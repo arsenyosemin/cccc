@@ -1,0 +1,127 @@
+.instructions {
+  color: black;
+  font-weight: bold;
+  text-align: left;
+  cursor: pointer;
+  background: #f1f5f9;
+  border: 2px;
+}
+
+.instructionChev {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.date {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  margin-right: 10px;
+  margin-left: 10px;
+  border-bottom: solid 1px;
+  border-color: #2d65f1;
+  display: flex;
+  align-items: center;
+  color: #000000 !important;
+}
+
+.advancedOptions {
+  margin-top: 20px;
+}
+
+.pickers {
+  display: flex;
+}
+
+.range {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.datesMenu {
+  overflow-y: scroll;
+  height: 400px;
+}
+
+.calendar {
+  margin-top: 20px;
+}
+
+.calendarMain {
+  margin-top: 15px;
+}
+
+table.cal {
+  background: #f1f5f9;
+  border-collapse: separate;
+  border-spacing: 5px;
+}
+
+table.cal tbody td {
+  background: white;
+  height: 89px;
+  width: 113px;
+  padding: 3px;
+  border-color: #f1f5f9;
+  text-align: right;
+}
+
+div.day {
+  position: relative;
+  bottom: 3px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+table.cal thead th {
+  background: white;
+  height: 58px;
+  width: 113px;
+  border-color: #f1f5f9;
+  font-size: 20px;
+  line-height: 24px;
+  vertical-align: middle;
+  align-items: center;
+  text-align: center;
+  color: #818181;
+}
+
+table.cal tbody td.weekend {
+  background: #f1f5f9;
+}
+
+.nextMonth {
+  text-align: left;
+  position: absolute;
+  font-weight: 600;
+}
+
+#links {
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.link {
+  margin-bottom: 20px;
+}
+
+.showSchedule {
+  margin-left: 10px;
+}
+
+.weekday:hover,
+.day:hover {
+  border: 1px solid black;
+}
+
+.unavailable {
+  height: 0.5vmin;
+  width: 100%;
+}
+
+.chev {
+  align-self: center;
+}
