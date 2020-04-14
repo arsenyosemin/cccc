@@ -1,0 +1,120 @@
+.text-btn{
+  font-weight: bold;
+  font-size: 16px;
+  margin: 6px;
+  line-height: 20px;
+  color: #2D65F1 !important;
+}
+.language{
+  border-bottom: solid 1px;
+  border-color: black;
+  display: flex;
+  align-items: center;
+  color: #000000 !important;
+}
+.date{
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  margin-right: 10px;
+  margin-left: 10px;
+  border-bottom: solid 1px;
+  border-color: #2D65F1;
+  display: flex;
+  align-items: center;
+  color: #000000 !important;
+}
+.Current-Edit{
+  margin-top:30px;
+}
+.current-family{
+  margin-left: 10px;
+  color: orange;
+}
+a.dropdown-toggle:hover{
+  text-decoration:none;
+}
+.Calendar{
+  margin-top: 20px;
+}
+.Navigation{
+  padding-left:4%;
+  padding-right:4%;
+  padding-top: 20px;
+  margin-bottom: 35px;
+}
+body{
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+}
+table.cal{
+  background:#F1F5F9;
+  border-collapse: separate;
+  border-spacing: 5px;
+}
+table.cal tbody td{
+  background:white;
+  height:89px;
+  width:113px;
+  padding:3px;
+  border-color:#F1F5F9;
+}
+div.day{
+  position: relative;
+  bottom: 3px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+}
+table.cal thead th{
+  background:white;
+  height:58px;
+  width:113px;
+  border-color:#F1F5F9;
+  font-size: 20px;
+  line-height: 24px;
+  vertical-align: middle;
+  align-items: center;
+  text-align: center;
+  color: #818181;
+}
+table.cal tbody td.weekend{
+  background:#F1F5F9;
+}
+.colorbox{
+  width: 15%;
+  padding-top:15%;
+}
+.namebox{
+  width: 85%;
+}
+.family{
+  margin:5%;
+  border: 1px solid #F1F5F9;
+}
+.name{
+  position:relative;
+  top:50%;
+  left:8px;
+  font-size:12px;
+  transform:translateY(-50%);
+  font-weight: bold;
+}
+div.addfamily div.namebox div.name{
+  position:relative;
+  color:#B0BCC9;
+  top:50%;
+  left:8px;
+  font-size:12px;
+  transform:translateY(-50%);
+  font-weight: bold;
+}
+#links{
+  margin-left:15%;
+  margin-right:15%;
+}
+.link{
+  margin-bottom: 20px;
+}
