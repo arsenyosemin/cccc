@@ -219,6 +219,8 @@ const App = () => {
             </a>
             <a href="https://www.twitter.com/zamarinwahdat">@zamarinwahdat</a>
             <a href="https://www.twitter.com/sophiawilhelm_">@sophiawilhelm_</a>
+            <a href="https://twitter.com/ssaikeerthana90">@ssaikeerthana90</a>
+            <a href="https://www.instagram.com/loaf_of_rai/">@loaf_of_rai</a>
           </div>
         </div>
       </footer>
